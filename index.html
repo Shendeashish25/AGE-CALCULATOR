@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+
+
+<style>
+    body {
+        background-color: #2205fe;
+        background-image: linear-gradient(160deg, #2205fe 0%, #89aaf5 100%);
+        min-height: 100vh;
+    }
+
+    .container {
+        display: block;
+        margin: 80px 80px;
+
+
+    }
+
+    .title-box {
+        border-left: 5px solid white;
+        padding-left: 10px;
+        font-size: 30px;
+
+    }
+
+    .title {
+        color: white;
+    }
+
+    .sub-title {
+        color: #feff76;
+
+    }
+
+    .date-input {
+        height: 200px;
+        width: 600px;
+        background-color: #0419fc;
+background-image: linear-gradient(19deg, #0419fc 0%, #98a0f5 100%);
+display: flex;
+justify-content: center;
+align-items: center;
+
+}
+.bday{
+    height: 25px;
+    width: 350px;
+font-size: 12px;
+padding: 10px;
+border: none;
+border-radius:3px ;
+cursor: pointer;
+
+}
+
+.btn-cal{
+height: 24px;
+width:130px ;
+border: none;
+border-radius: 3px;
+font-size: 12px;
+margin-left: 15px;
+padding: 23px ;
+display: flex;
+justify-content: center;
+align-items: center;
+background-color:#feff76 ;
+cursor: pointer;
+
+}
+.btn-cal:hover{
+    border: 3px solid rgb(8, 8, 8);
+}
+.color-user{
+    color: #fefe53;
+}
+
+
+</style>
+
+<body>
+    <div class="container">
+        <div class="title-box">
+            <h1 class="title">JavaScript</h1>
+            <h1 class="sub-title"> Age Calculator</h1>
+        </div>
+
+        <div class="date-input">
+
+            <input type="date" class="bday" id="bday" />
+            <button type="button" class="btn-cal" onclick="Calculate()" > Calculate  </button>
+        </div>
+        <p id="output" class="color-user"></p>
+    </div>
+
+<script>
+
+function Calculate()
+{
+    const birthDay=document.getElementById(`bday`).value;
+    const bday = new Date(birthDay);
+    const today = new Date();
+    let age = today.getFullYear() - bday.getFullYear();
+    const m = today.getMonth() - bday.getMonth();
+
+    if (m < 0 || (m === 0 && today.getDate() < bday))
+    {
+    
+        document.getElementById(`output`).innerText= age--;
+    }
+    
+
+     else(m===0 && today.getDate() === bday )
+     {
+        document.getElementById(`output`).innerText = `You are ${age} years old.`;
+     }
+
+
+}
+
+
+
+
+
+</script>
+
+</body>
+
+</html>
